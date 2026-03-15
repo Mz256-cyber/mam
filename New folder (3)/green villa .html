@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greenvilla Bar & Accommodation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+
+    body {
+      background: #f2f7f2;
+      color: #1e2f23;
+      line-height: 1.5;
+    }
+
+    /* header & navigation */
+    header {
+      background: linear-gradient(145deg, #0f2e1f, #1b4b2e);
+      color: white;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,40,0,0.3);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      text-shadow: 2px 2px 0 #0a1f14;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      border: 2px solid transparent;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #128C7E;
+      transform: scale(1.02);
+      border-color: #f5f7e6;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    /* section titles */
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin: 50px 0 30px;
+      color: #1b4b2e;
+      font-weight: 600;
+      border-bottom: 3px solid #b8860b;
+      display: inline-block;
+      padding-bottom: 8px;
+      width: auto;
+      border-bottom-width: 4px;
+    }
+
+    .title-wrapper {
+      text-align: center;
+    }
+
+    /* accommodation grid */
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
+      margin-top: 15px;
+    }
+
+    .room-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 30px -8px rgba(0, 60, 20, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+      border: 1px solid #d0e6d0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .room-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 35px -8px #1e4a2e;
+    }
+
+    .room-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-bottom: 4px solid #b8860b;
+    }
+
+    .room-info {
+      padding: 20px 20px 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .room-info h3 {
+      font-size: 1.8rem;
+      color: #1b4b2e;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .room-description {
+      color: #2d4a33;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #b8860b;
+      margin: 10px 0 15px;
+      background: #fef7e8;
+      padding: 6px 12px;
+      border-radius: 40px;
+      display: inline-block;
+      align-self: flex-start;
+      border: 1px solid #ebc87e;
+    }
+
+    .price small {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #3f5c45;
+    }
+
+    .wa-order-btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-align: center;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: auto;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 5px 10px rgba(0,150,0,0.2);
+    }
+
+    .wa-order-btn:hover {
+      background: #128C7E;
+      box-shadow: 0 8px 15px rgba(0,80,0,0.3);
+    }
+
+    /* bar section */
+    .bar-section {
+      background: #e6f0e6;
+      border-radius: 40px;
+      padding: 40px 30px;
+      margin: 50px 0 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      box-shadow: inset 0 0 0 1px #b7d7b7, 0 10px 20px rgba(0,30,0,0.1);
+    }
+
+    .bar-image {
+      flex: 1 1 300px;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      border: 3px solid #b8860b;
+    }
+
+    .bar-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .bar-text {
+      flex: 1 1 280px;
+      padding: 10px;
+    }
+
+    .bar-text h3 {
+      font-size: 2.2rem;
+      color: #1b4b2e;
+      margin-bottom: 15px;
+    }
+
+    .bar-text p {
+      font-size: 1.2rem;
+      color: #1e3a24;
+      margin-bottom: 25px;
+    }
+
+    /* fixed WhatsApp chat button */
+    .fixed-wa {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      color: white;
+      border-radius: 60px;
+      padding: 15px 28px;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 25px rgba(0, 70, 0, 0.5);
+      z-index: 999;
+      border: 2px solid white;
+      backdrop-filter: blur(2px);
+      transition: all 0.2s;
+    }
+
+    .fixed-wa:hover {
+      background: #128C7E;
+      transform: scale(1.05);
+      padding-right: 35px;
+    }
+
+    .fixed-wa img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+    }
+
+    /* footer */
+    footer {
+      background: #0f2e1f;
+      color: #e0f0e0;
+      text-align: center;
+      padding: 35px 20px;
+      margin-top: 60px;
+      font-size: 1.1rem;
+      border-top: 5px solid #b8860b;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    footer a {
+      color: #f5c542;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* header order button */
+    .header-order-btn {
+      margin-top: 15px;
+      background: #f5b41a;
+      color: #1b4b2e;
+      border: 2px solid white;
+    }
+
+    .header-order-btn:hover {
+      background: #e09e0b;
+      color: #0a2e1a;
+    }
+
+    /* small adjustments */
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      .fixed-wa { padding: 12px 18px; }
+      .fixed-wa span { display: none; }
+      .fixed-wa img { margin-right: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌿 Greenvilla Bar & Accommodation</h1>
+    <p>Your serene getaway • Where comfort meets nature</p>
+    <!-- explicit "place an order" button in header (global pre‑written message) -->
+    <a href="https://wa.me/256774897297?text=Hello%2C%20I%27d%20like%20to%20place%20an%20order%20for%20accommodation%20or%20inquire%20about%20Greenvilla." 
+       target="_blank" 
+       class="btn header-order-btn">
+       📦 Place an Order
+    </a>
+  </header>
+
+  <div class="container">
+    <!-- accommodation section with images and different prices -->
+    <div class="title-wrapper">
+      <h2 class="section-title">🛏️ Choose your stay</h2>
+    </div>
+
+    <div class="room-grid">
+      <!-- Standard room -->
+      <div class="room-card">
+        <img src="https://images.unsplash.com/photo-1566665797739-0954d9e9d2e3?w=500&h=350&fit=crop&auto=format" alt="Standard room with cozy bed" loading="lazy">
+        <div class="room-info">
+          <h3>Standard Room</h3>
+          <p class="room-description">Compact, bright, and perfect for solo travellers or couples. Free Wi-Fi, fresh linen, and garden view.</p>
+          <div class="price">$50 <small>/ night</small></div>
+          <!-- place order button (per room, pre‑filled message with details) -->
+          <a href="https://wa.me/256774897297?text=Hello%2C%20I%27d%20like%20to%20book%20the%20Standard%20Room%20at%20%2450%20per%20night.%20Please%20confirm%20availability%20for%20Greenvilla." 
+             target="_blank" 
+             class="wa-order-btn">
+             📲 Place order (WhatsApp)
+          </a>
+        </div>
+      </div>
+
+      <!-- Deluxe room -->
+      <div class="room-card">
+        <img src="https://images.unsplash.com/photo-1631049552076-84018f8c50d4?w=500&h=350&fit=crop&auto=format" alt="Deluxe room with large windows" loading="lazy">
+        <div class="room-info">
+          <h3>Deluxe Room</h3>
+          <p class="room-description">Spacious, with premium amenities, en-suite bath, and a private balcony overlooking the garden.</p>
+          <div class="price">$80 <small>/ night</small></div>
+          <a href="https://wa.me/256774897297?text=Hello%2C%20I%27m%20interested%20in%20the%20Deluxe%20Room%20at%20%2480%20per%20night.%20Please%20let%20me%20know%20availability." 
+             target="_blank" 
+             class="wa-order-btn">
+             📲 Place order (WhatsApp)
+          </a>
+        </div>
+      </div>
+
+      <!-- Family Suite -->
+      <div class="room-card">
+        <img src="https://images.unsplash.com/photo-1582719478250-0f8b4a4e1c0b?w=500&h=350&fit=crop&auto=format" alt="Family suite with two bedrooms" loading="lazy">
+        <div class="room-info">
+          <h3>Family Suite</h3>
+          <p class="room-description">Two connecting rooms, ideal for families or groups. Includes sitting area, mini fridge, and extra comforts.</p>
+          <div class="price">$120 <small>/ night</small></div>
+          <a href="https://wa.me/256774897297?text=I%20want%20to%20book%20the%20Family%20Suite%20at%20%24120%20per%20night.%20Please%20check%20availability%20for%20my%20dates." 
+             target="_blank" 
+             class="wa-order-btn">
+             📲 Place order (WhatsApp)
+          </a>
+        </div>
+      </div>
+    </div> <!-- end room grid -->
+
+    <!-- Bar section with image -->
+    <div class="bar-section">
+      <div class="bar-image">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=700&h=450&fit=crop&auto=format" alt="Cozy bar counter at Greenvilla" loading="lazy">
+      </div>
+      <div class="bar-text">
+        <h3>🍸 The Greenvilla Bar</h3>
+        <p>Unwind with signature cocktails, local brews, and fine spirits. Our bar offers a warm, rustic atmosphere – perfect for evening relaxation. Open daily 4pm – late.</p>
+        <!-- subtle place order button for bar? but we keep consistent; you can also order drinks via WhatsApp -->
+        <a href="https://wa.me/256774897297?text=Hello%2C%20I%27d%20like%20to%20inquire%20about%20bar%20reservations%20or%20order%20drinks%20at%20Greenvilla." 
+           target="_blank" 
+           class="btn" 
+           style="background: #b8860b; color: white; padding: 12px 28px; font-size: 1rem;">
+           🍻 Bar inquiry via WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- extra contact / quick order row (optional but reinforces "place order") -->
+    <div style="display: flex; justify-content: center; margin: 20px 0 10px;">
+      <a href="https://wa.me/256774897297?text=Hello%2C%20I%20want%20to%20make%20a%20reservation%20or%20place%20an%20order%20at%20Greenvilla." 
+         target="_blank" 
+         class="btn" 
+         style="background: #0f2e1f; color: white; font-size: 1.2rem; padding: 16px 45px;">
+         🛎️ Click here to Place an Order (any inquiry)
+      </a>
+    </div>
+  </div> <!-- end container -->
+
+  <!-- fixed WhatsApp button (floating) with pre‑written message and the exact number -->
+  <a href="https://wa.me/256774897297?text=Hello%20Greenvilla%2C%20I%20visited%20your%20website%20and%20would%20like%20to%20make%20a%20booking%20or%20ask%20about%20accommodation." 
+     target="_blank" 
+     class="fixed-wa">
+     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+     <span>Chat with us</span>
+  </a>
+
+  <footer>
+    <p>📍 Greenvilla Bar & Accommodation – Jinja Road, Kampala</p>
+    <p>📞 <a href="tel:+256774897297">+256 077 489 7297</a> (Click to call)  |  ✉️ stay@greenvilla.ug</p>
+    <p>💬 WhatsApp (same number): <strong>+256 077 489 7297</strong> – we reply fast!</p>
+    <p>© 2025 Greenvilla. All rights reserved. | Your comfort, our nature.</p>
+  </footer>
+
+  <!-- small note: all WhatsApp links use the number without leading zero: 256774897297 (correct format) -->
+</body>
+</html>
